@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
+            android:name=".calculator.ResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".calculator.EntryActivity"
             android:exported="false" />
         <activity
