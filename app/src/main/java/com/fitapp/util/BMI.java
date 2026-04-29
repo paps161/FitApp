@@ -8,6 +8,12 @@ public class BMI implements Serializable{
 
 
     }
+    public double berechnen (int kilo, int groesse){
+        double groesseM = groesse/100;
+        double bmiresult = kilo/Math.pow(groesseM, 2);
+
+        return bmiresult;
+    }
 
 
 }
