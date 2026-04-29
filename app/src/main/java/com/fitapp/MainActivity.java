@@ -1,3 +1,4 @@
+// Autor: Selina Weber | Letzte Änderung: 29.04.2026
 package com.fitapp;
 
 import android.content.Intent;
