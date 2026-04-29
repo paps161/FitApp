@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Willkommen in der FitApp"
+        android:textSize="25sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/textViewDef"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,19 +20,21 @@
 
     <TextView
         android:id="@+id/textViewDef"
-        android:layout_width="325dp"
-        android:layout_height="210dp"
-        android:text="Der Body-Mass-Index (BMI [ˈbɒdi mæs ˈɪndɛks]) – auch Körpermasseindex (KMI), Körpermassenzahl (KMZ) oder Quetelet-Kaup-Index – ist eine Maßzahl für die Klassifizierung des Körpergewichts eines Menschen in Relation zu seiner Körpergröße. Sie wurde 1832 von Adolphe Quetelet sowie nach dem Ersten Weltkrieg von Ignaz Kaup entwickelt. Der BMI ist lediglich eine grob schätzende Maßzahl, da sie weder Statur und biologisches Geschlecht noch die individuelle Zusammensetzung der Körpermasse aus Fett- und Muskelgewebe eines Menschen berücksichtigt."
-        app:layout_constraintTop_toBottomOf="@+id/textBeg"
+        android:layout_width="372dp"
+        android:layout_height="244dp"
+        android:text="Definition: \nDer Body-Mass-Index (BMI [ˈbɒdi mæs ˈɪndɛks]) – auch Körpermasseindex (KMI), Körpermassenzahl (KMZ) oder Quetelet-Kaup-Index – ist eine Maßzahl für die Klassifizierung des Körpergewichts eines Menschen in Relation zu seiner Körpergröße. Sie wurde 1832 von Adolphe Quetelet sowie nach dem Ersten Weltkrieg von Ignaz Kaup entwickelt. Der BMI ist lediglich eine grob schätzende Maßzahl, da sie weder Statur und biologisches Geschlecht noch die individuelle Zusammensetzung der Körpermasse aus Fett- und Muskelgewebe eines Menschen berücksichtigt."
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewFormel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBeg" />
 
     <TextView
         android:id="@+id/textViewFormel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BMI = m / l²"
+        android:text="Formel: BMI = m / l²"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/textViewDef"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Meinen BMI berechnen"
+        android:backgroundTint="@color/blau"
         app:layout_constraintTop_toBottomOf="@+id/textViewFormel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
