@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitApp">
         <activity
+            android:name=".config.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".history.OverviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".rating.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".rating.LegendActivity"
+            android:exported="false" />
+        <activity
             android:name=".calculator.ResultActivity"
             android:exported="false" />
         <activity
