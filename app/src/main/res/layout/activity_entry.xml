@@ -8,36 +8,40 @@
     tools:context=".calculator.EntryActivity">
 
     <EditText
-        android:id="@+id/editTextNumberKilo"
+        android:id="@+id/editTextKilo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Körpergewicht in Kilo"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberGroesse"
+
+        app:layout_constraintBottom_toTopOf="@id/editTextGroesse"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberGroesse"
+        android:id="@+id/editTextGroesse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Körpergrösse in cm"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
+
+        app:layout_constraintBottom_toTopOf="@id/buttonSubmit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.417"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberKilo" />
+        app:layout_constraintTop_toBottomOf="@id/editTextKilo" />
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculate"
+        android:text="Submit"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberGroesse"/>
+        app:layout_constraintTop_toBottomOf="@id/editTextGroesse" />
 </androidx.constraintlayout.widget.ConstraintLayout>
