@@ -1,6 +1,8 @@
 // Autor: Selina Weber | Letzte Änderung: 29.04.2026
 package com.fitapp;
 
+//claude --resume e11acf7c-d23d-41dc-bb86-0b41e3c290df
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;

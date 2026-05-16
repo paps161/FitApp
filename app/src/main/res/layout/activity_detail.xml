@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kategorie: " />
+            android:text="@string/label_category" />
 
         <TextView
             android:id="@+id/textViewAllgemein"
@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Spezifisch: " />
+            android:text="@string/label_specific" />
 
         <TextView
             android:id="@+id/textViewSpezifisch"
@@ -64,7 +64,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Min: " />
+            android:text="@string/label_min" />
 
         <TextView
             android:id="@+id/textViewMin"
@@ -86,7 +86,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Max: " />
+            android:text="@string/label_max" />
 
         <TextView
             android:id="@+id/textViewMax"

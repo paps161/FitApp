@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">FitApp</string>
+    <string name="app_name" translatable="false">FitApp</string>
+    <string name="welcome_title">Welcome to the FitApp</string>
+    <string name="bmi_definition">Definition:\nThe Body Mass Index (BMI) is a measure for classifying the body weight of a person in relation to their height. It was developed in 1832 by Adolphe Quetelet and after World War I by Ignaz Kaup. The BMI is only a rough estimate, as it does not take into account stature, biological sex, or the individual composition of body mass from fat and muscle tissue.</string>
+    <string name="bmi_formula">Formula: BMI = m / l²</string>
+    <string name="button_calculate">Calculate my BMI</string>
+    <string name="hint_weight">Weight (kg)</string>
+    <string name="hint_height">Height (cm)</string>
+    <string name="button_submit">Submit</string>
+    <string name="label_category">Category: </string>
+    <string name="label_specific">Specific: </string>
+    <string name="label_min">Min: </string>
+    <string name="label_max">Max: </string>
+    <string name="menu_home">Home</string>
+    <string name="menu_calculator">Calculator</string>
+    <string name="menu_ratings">Ratings</string>
+    <string name="menu_history">History</string>
+    <string name="menu_settings">Settings</string>
+    <string name="button_logins">Logins</string>
+    <string name="button_new_login">New Login</string>
 </resources>

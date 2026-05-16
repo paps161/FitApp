@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/MainActivity"
-        android:title="Home"/>
+        android:title="@string/menu_home"/>
     <item
         android:id="@+id/EntryActivity"
-        android:title="Calculator"/>
+        android:title="@string/menu_calculator"/>
     <item
         android:id="@+id/LegendActivity"
-        android:title="Ratings"/>
+        android:title="@string/menu_ratings"/>
     <item
         android:id="@+id/OverviewActivity"
-        android:title="History"/>
+        android:title="@string/menu_history"/>
     <item
         android:id="@+id/SettingsActivity"
-        android:title="Settings"/>
+        android:title="@string/menu_settings"/>
 </menu>

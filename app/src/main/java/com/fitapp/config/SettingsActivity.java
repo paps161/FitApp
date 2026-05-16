@@ -1,10 +1,12 @@
 // Autor: Selina Weber | Letzte Änderung: 10.05.2026
 package com.fitapp.config;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,5 +48,16 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        Button btn = findViewById(R.id.UserActivityButton);
+        btn.setOnClickListener(v -> {
+            startActivity(new Intent(this, UserActivity.class));
+        });
+
+        Button btn2 = findViewById(R.id.newLoginButton);
+        btn2.setOnClickListener(v -> {
+            //Popup2
+        });
+
     }
 }
