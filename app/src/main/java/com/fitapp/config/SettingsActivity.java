@@ -1,4 +1,4 @@
-// Autor: Selina Weber | Letzte Änderung: 10.05.2026
+// Autor: Selina Weber | Letzte Änderung: 16.05.2026
 package com.fitapp.config;
 
 import android.annotation.SuppressLint;

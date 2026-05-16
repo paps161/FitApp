@@ -1,3 +1,4 @@
+// Autor: Selina Weber | Letzte Änderung: 16.05.2026
 package com.fitapp.config;
 
 import android.os.Bundle;
