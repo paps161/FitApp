@@ -1,13 +1,14 @@
 // Autor: Selina Weber | Letzte Änderung: 16.05.2026
 package com.fitapp.config;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fitapp.MainActivity;
@@ -56,7 +57,20 @@ public class SettingsActivity extends AppCompatActivity {
 
         Button btn2 = findViewById(R.id.newLoginButton);
         btn2.setOnClickListener(v -> {
-            //Popup2
+            var promptView = getLayoutInflater().inflate(R.layout.prompt_login, null);
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.dialog_title_new_login)
+                    .setMessage(R.string.dialog_message_new_login)
+                    .setView(promptView)
+                    .setPositiveButton(R.string.button_create, (dialog, id) -> {
+                        var login = ((EditText) promptView.findViewById(R.id.promptText))
+                                .getText().toString();
+                        getSharedPreferences("prefs", MODE_PRIVATE)
+                                .edit().putString("current-user", login).apply();
+                    })
+                    .setNegativeButton(R.string.button_cancel, (dialog, id) -> dialog.cancel())
+                    .create()
+                    .show();
         });
 
     }

@@ -1,7 +1,7 @@
 // Autor: Selina Weber | Letzte Änderung: 16.05.2026
 package com.fitapp;
 
-//claude --resume e11acf7c-d23d-41dc-bb86-0b41e3c290df
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        var prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        if (!prefs.contains("current-user")) {
+            prefs.edit().putString("current-user", "<anonymous>").apply();
+        }
 
         Button btn = findViewById(R.id.button);
         btn.setOnClickListener(v -> {
