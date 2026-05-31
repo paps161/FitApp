@@ -23,4 +23,7 @@
     <string name="hint_login">Enter login</string>
     <string name="button_create">Create</string>
     <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_filter">Filter</string>
+    <string name="button_apply_filter">Apply Filter</string>
 </resources>

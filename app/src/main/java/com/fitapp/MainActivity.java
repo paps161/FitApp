@@ -1,24 +1,22 @@
-// Autor: Selina Weber | Letzte Änderung: 16.05.2026
+// Autor: Selina Weber | Letzte Änderung: 31.05.2026
 package com.fitapp;
 
 
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.fitapp.calculator.EntryActivity;
 import com.fitapp.config.SettingsActivity;
 import com.fitapp.history.OverviewActivity;
 import com.fitapp.rating.LegendActivity;
+import com.fitapp.util.DatabaseConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
         var prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         if (!prefs.contains("current-user")) {
+            var values = new ContentValues();
+            values.put("login", "<anonymous>");
+            new DatabaseConnection(this).getWritableDatabase().insert("user", null, values);
             prefs.edit().putString("current-user", "<anonymous>").apply();
         }
 

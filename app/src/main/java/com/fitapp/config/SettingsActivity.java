@@ -1,6 +1,7 @@
-// Autor: Selina Weber | Letzte Änderung: 16.05.2026
+// Autor: Selina Weber | Letzte Änderung: 31.05.2026
 package com.fitapp.config;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import com.fitapp.R;
 import com.fitapp.calculator.EntryActivity;
 import com.fitapp.history.OverviewActivity;
 import com.fitapp.rating.LegendActivity;
+import com.fitapp.util.DatabaseConnection;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -65,6 +67,10 @@ public class SettingsActivity extends AppCompatActivity {
                     .setPositiveButton(R.string.button_create, (dialog, id) -> {
                         var login = ((EditText) promptView.findViewById(R.id.promptText))
                                 .getText().toString();
+                        var values = new ContentValues();
+                        values.put("login", login);
+                        new DatabaseConnection(this).getWritableDatabase()
+                                .insert("user", null, values);
                         getSharedPreferences("prefs", MODE_PRIVATE)
                                 .edit().putString("current-user", login).apply();
                     })

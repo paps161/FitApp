@@ -23,5 +23,8 @@
     <string name="hint_login">Login eingeben</string>
     <string name="button_create">Erstellen</string>
     <string name="button_cancel">Abbrechen</string>
+    <string name="button_save">Speichern</string>
+    <string name="button_filter">Filter</string>
+    <string name="button_apply_filter">Filter anwenden</string>
 
 </resources>

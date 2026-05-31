@@ -1,10 +1,12 @@
-// Autor: Selina Weber | Letzte Änderung: 10.05.2026
+// Autor: Selina Weber | Letzte Änderung: 31.05.2026
 package com.fitapp.calculator;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,9 @@ import com.fitapp.config.SettingsActivity;
 import com.fitapp.history.OverviewActivity;
 import com.fitapp.rating.LegendActivity;
 import com.fitapp.util.BMI;
+import com.fitapp.util.DatabaseConnection;
+
+import java.time.LocalDate;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -55,5 +60,18 @@ public class ResultActivity extends AppCompatActivity {
 
         var textViewBMI = (TextView) findViewById(R.id.textViewBMI);
         textViewBMI.setText("BMI: " + result);
+
+        var buttonSave = (Button) findViewById(R.id.buttonSave);
+        buttonSave.setOnClickListener(v -> {
+            var login = getSharedPreferences("prefs", MODE_PRIVATE)
+                    .getString("current-user", "<anonymous>");
+            var values = new ContentValues();
+            values.put("date", LocalDate.now().toString());
+            values.put("login", login);
+            values.put("height", bmi.groesse);
+            values.put("weight", bmi.kilo);
+            values.put("bmi", result);
+            new DatabaseConnection(this).getWritableDatabase().insert("measurement", null, values);
+        });
     }
 }

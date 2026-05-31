@@ -21,6 +21,9 @@
             android:name=".history.OverviewActivity"
             android:exported="false" />
         <activity
+            android:name=".history.FilterActivity"
+            android:exported="false" />
+        <activity
             android:name=".rating.DetailActivity"
             android:exported="false" />
         <activity

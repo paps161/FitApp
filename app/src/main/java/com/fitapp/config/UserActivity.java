@@ -1,14 +1,14 @@
-// Autor: Selina Weber | Letzte Änderung: 16.05.2026
+// Autor: Selina Weber | Letzte Änderung: 31.05.2026
 package com.fitapp.config;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +17,9 @@ import com.fitapp.R;
 import com.fitapp.calculator.EntryActivity;
 import com.fitapp.history.OverviewActivity;
 import com.fitapp.rating.LegendActivity;
+import com.fitapp.util.DatabaseConnection;
+
+import java.util.ArrayList;
 
 public class UserActivity extends AppCompatActivity {
 
@@ -52,7 +55,15 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         var prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        var logins = new String[] { "<anonymous>" };
+
+        var cursor = new DatabaseConnection(this).getReadableDatabase()
+                .query("user", new String[]{"login"}, null, null, null, null, null);
+        var loginList = new ArrayList<String>();
+        while (cursor.moveToNext()) {
+            loginList.add(cursor.getString(0));
+        }
+        cursor.close();
+        var logins = loginList.toArray(new String[0]);
 
         var loginSpinner = (Spinner) findViewById(R.id.loginSpinner);
         var adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, logins);
