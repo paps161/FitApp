@@ -62,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
         if (!prefs.contains("current-user")) {
             var values = new ContentValues();
             values.put("login", "<anonymous>");
-            new DatabaseConnection(this).getWritableDatabase().insert("user", null, values);
+            try (var dbHelper = new DatabaseConnection(this)) {
+                dbHelper.getWritableDatabase().insert("user", null, values);
+            }
             prefs.edit().putString("current-user", "<anonymous>").apply();
         }
 

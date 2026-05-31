@@ -71,7 +71,9 @@ public class ResultActivity extends AppCompatActivity {
             values.put("height", bmi.groesse);
             values.put("weight", bmi.kilo);
             values.put("bmi", result);
-            new DatabaseConnection(this).getWritableDatabase().insert("measurement", null, values);
+            try (var dbHelper = new DatabaseConnection(this)) {
+                dbHelper.getWritableDatabase().insert("measurement", null, values);
+            }
         });
     }
 }

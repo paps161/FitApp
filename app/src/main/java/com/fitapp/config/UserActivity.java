@@ -56,13 +56,14 @@ public class UserActivity extends AppCompatActivity {
 
         var prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
-        var cursor = new DatabaseConnection(this).getReadableDatabase()
-                .query("user", new String[]{"login"}, null, null, null, null, null);
         var loginList = new ArrayList<String>();
-        while (cursor.moveToNext()) {
-            loginList.add(cursor.getString(0));
+        try (var dbHelper = new DatabaseConnection(this);
+             var cursor = dbHelper.getReadableDatabase()
+                     .query("user", new String[]{"login"}, null, null, null, null, null)) {
+            while (cursor.moveToNext()) {
+                loginList.add(cursor.getString(0));
+            }
         }
-        cursor.close();
         var logins = loginList.toArray(new String[0]);
 
         var loginSpinner = (Spinner) findViewById(R.id.loginSpinner);

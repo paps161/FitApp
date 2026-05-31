@@ -69,8 +69,9 @@ public class SettingsActivity extends AppCompatActivity {
                                 .getText().toString();
                         var values = new ContentValues();
                         values.put("login", login);
-                        new DatabaseConnection(this).getWritableDatabase()
-                                .insert("user", null, values);
+                        try (var dbHelper = new DatabaseConnection(this)) {
+                            dbHelper.getWritableDatabase().insert("user", null, values);
+                        }
                         getSharedPreferences("prefs", MODE_PRIVATE)
                                 .edit().putString("current-user", login).apply();
                     })

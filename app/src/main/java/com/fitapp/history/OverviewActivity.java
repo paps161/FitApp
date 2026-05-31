@@ -75,8 +75,6 @@ public class OverviewActivity extends AppCompatActivity {
     }
 
     private void loadMeasurements(ListView measurementList, String[] selectedLogins) {
-        var db = new DatabaseConnection(this).getReadableDatabase();
-
         String selection = null;
         String[] selectionArgs = null;
         if (selectedLogins != null && selectedLogins.length > 0) {
@@ -88,18 +86,18 @@ public class OverviewActivity extends AppCompatActivity {
             selectionArgs = selectedLogins;
         }
 
-        var cursor = db.query("measurement",
-                new String[]{"date", "login", "height", "weight", "bmi"},
-                selection, selectionArgs, null, null, "date DESC");
-
         var items = new ArrayList<String>();
-        while (cursor.moveToNext()) {
-            items.add(cursor.getString(0) + " | " + cursor.getString(1) +
-                    " | " + cursor.getDouble(2) + "cm" +
-                    " | " + cursor.getDouble(3) + "kg" +
-                    " | BMI: " + cursor.getDouble(4));
+        try (var dbHelper = new DatabaseConnection(this);
+             var cursor = dbHelper.getReadableDatabase().query("measurement",
+                     new String[]{"date", "login", "height", "weight", "bmi"},
+                     selection, selectionArgs, null, null, "date DESC")) {
+            while (cursor.moveToNext()) {
+                items.add(cursor.getString(0) + " | " + cursor.getString(1) +
+                        " | " + cursor.getDouble(2) + "cm" +
+                        " | " + cursor.getDouble(3) + "kg" +
+                        " | BMI: " + cursor.getDouble(4));
+            }
         }
-        cursor.close();
 
         var adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         measurementList.setAdapter(adapter);
